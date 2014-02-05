@@ -10,11 +10,12 @@
 	<script src="js/ui/jquery.ui.datepicker.js"></script>
 	<script type="text/javascript" src="js/form.js"></script>
 	<script>
-//	$(function() {
-	//	$("#datepicker" ).datepicker();
-	//});
+$(function() {
+		$("#datepicker" ).datepicker();
+	});
 	var time;
 	var sex1;
+	var dt;
 	function time1()
 	{
 	    time=document.getElementById('time').options[document.getElementById('time').selectedIndex].value;
@@ -25,21 +26,31 @@
 	 sex1=sex;
 	 
 	}
-	function getname()
+	function date1()
 	{
-	 var name=document.getElementById("name").value;
-	 var phone=document.getElementById("phone").value;
-	 var age=document.getElementById("age").value;
-	
-	 var datepicker=document.getElementById("datepicker").value;
-	 var email=document.getElementById("email").value;
-	 var desp=document.getElementById("desp").value;
-	 insertPatient()          
+	var fromdate=new Date(document.getElementById("datepicker").value);
+	 var dd = fromdate.getDate();
+     var mm = fromdate.getMonth()+1;
+     var yyyy = fromdate.getFullYear();
+     if(dd < 10)
+        {
+            dd = '0'+ dd;
+        }
+        if(mm < 10)
+        {
+            mm = '0' + mm;
+        }
+     dt=yyyy+'-'+mm+'-'+dd;
+	}
+	function resetfun()
+	{
+	 document.getElementById('register').reset();         
 	}
 	
 	</script>
 </head>
 <body>
+<form id="register">
 <table>
 <tr>
 <td><label>Name</label> </td>
@@ -83,6 +94,8 @@
 		</td></tr>
 	</table>
 	
-	<input type="button" value="SUBMIT" onClick="getname()"/>
+	<input type="button" value="SUBMIT" onClick="insertPatient()"/>
+	<input type="button" value="Reset" onClick="resetfun()"/>
+	</form>
 </body>
 </html>

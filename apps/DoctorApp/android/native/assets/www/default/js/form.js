@@ -4,11 +4,19 @@
  * 
  */
 
-function insertPatient(name,phoneno,emailid,a_date,a_time,desp,age,sex){
+function insertPatient(){
+	date1();
+	 var name=document.getElementById("name").value;
+	 var phone=document.getElementById("phone").value;
+	 var age=document.getElementById("age").value;	
+	 
+	 var email=document.getElementById("email").value;
+	 var desp=document.getElementById("desp").value;
+	 
 	var input = {
 			adapter:"mysql",
 			procedure:"procedure1",
-			parameters:[name,phoneno,emailid,a_date,a_time,desp,age,sex]
+			parameters:[name,phone,email,dt,time,desp,age,sex1]
 	};
 	WL.Client.invokeProcedure(input, {
 		onSuccess:putSQLData,
@@ -16,11 +24,35 @@ function insertPatient(name,phoneno,emailid,a_date,a_time,desp,age,sex){
 	});
 	 
 }
-
 function putSQLData(result)
 {
-   alert("hello");	
+ alert(result.invocationResult.updateStatementResult.updateCount);   
 }
 
-function getErrorData()
-{}
+function getErrorData(error)
+{
+   alert("fail");	
+}
+
+
+/*function insertPatient(){
+	WL.Client.invokeProcedure({
+		adapter:"mysql",
+		procedure:"procedure2",
+		parameters:[]
+}, {
+		onSuccess:putSQLData,
+		onFailure:getErrorData
+	});
+	 
+}
+function putSQLData(result)
+{
+ alert(result.invocationResult.resultSet[0].name);   
+}
+function getErrorData(error)
+{
+alert("fail");	
+}
+
+*/

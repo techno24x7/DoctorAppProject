@@ -20,7 +20,7 @@
 			<!-- Example for using MySQL connector, do not forget to put the MySQL connector library in the project's lib folder -->
 			<dataSourceDefinition>
 				<driverClass>com.mysql.jdbc.Driver</driverClass>
-				<url>jdbc:mysql://172.16.3.212:3306/test</url>
+				<url>jdbc:mysql://127.0.0.1:3306/test</url>
 			    <user>doctor</user>
     			<password></password> 
 			</dataSourceDefinition>

@@ -11,3 +11,10 @@ function loadPage(){
 			
 	
 }
+function loadPage1(){
+	var pagepath = "pages/listpatients.html";
+	pagesHistory.push("pages/doctor.html");
+	$("#container").load(pagepath, function(){WL.Logger.info("Page loaded");});
+			
+	
+}

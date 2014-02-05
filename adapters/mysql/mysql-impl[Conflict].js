@@ -12,12 +12,12 @@
  * @return - invocationResult
  */
  
-var procedure1Statement = WL.Server.createSQLStatement("INSERT INTO patient(`name`, `phoneno`,`email`, `a_date`, `a_time`, `description`,`age`,`sex`)VALUES (?,?,?,?,?,?,?,?);");
-function procedure1(name,phoneno,emailid,a_date,a_time,desp,age,sex) {
+var procedure1Statement = WL.Server.createSQLStatement("INSERT INTO patient(`name`, `phoneno`,`email`, `a_date`, `a_time`, `description`)VALUES (?,?,?,?,?,?);");
+function procedure1(name,phoneno,emailid,a_date,a_time,desp) {
 	
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : procedure1Statement,
-		parameters : [name,phoneno,emailid,a_date,a_time,desp,age,sex]
+		parameters : [name,phoneno,emailid,a_date,a_time,desp]
 	});
 }
 
